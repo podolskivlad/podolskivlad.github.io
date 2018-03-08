@@ -86,6 +86,7 @@ function testing() {
     }
   }
   if(bien_udicada == 9) {
+    win.volume = 0.2;
     win.play();
   }
 }

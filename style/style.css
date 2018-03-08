@@ -1,3 +1,8 @@
+section, body, html, h1{
+  padding: 0;
+  margin: 0;
+}
+
 #entorno{
   display: block;
   margin: 0 auto;
@@ -5,4 +10,44 @@
 
 #fondo{
   opacity: 0.3;
+}
+
+#picture{
+  height: 100vh;
+  width: 100%;
+  background-image: url(../img/flower-3191087_1920.jpg);
+  position: relative;
+}
+
+.filter{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0,0,0,.7);
+}
+
+.centered{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  color: white;
+  text-align: center;
+  font-family: Arial;
+  font-size: 40px;
+}
+
+h1{
+  font-size: 50px!important;
+}
+
+#example .new { opacity: 0; }
+
+#example .opacity{
+  -webkit-transition: opacity .5s ease-in-out;
+  -moz-transition: opacity .5s ease-in-out;
+  -ms-transition: opacity .5s ease-in-out;
+  -o-transition: opacity .5s ease-in-out;
+  transition: opacity .5s ease-in-out;
+  opacity: 1!important;
 }
