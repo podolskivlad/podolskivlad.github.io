@@ -24,6 +24,7 @@ function selectionElement(evt) {
   currentPosX = parseFloat(elementSelect.getAttribute('x'));
   currentPosY = parseFloat(elementSelect.getAttribute('y'));
   elementSelect.setAttribute("onmousemove", "moverElement(evt)");
+  elementSelect.setAttribute("touchmove", "moverElement(evt)");
 }
 function moverElement(evt) {
   var dx = evt.clientX - currentX;
@@ -36,6 +37,7 @@ function moverElement(evt) {
   currentY = evt.clientY;
   elementSelect.setAttribute("onmouseout", "deselectElement(evt)");
   elementSelect.setAttribute("onmouseup", "deselectElement(evt)");
+  elementSelect.setAttribute("touchend", "deselectElement(evt)");
   iman();
 }
 
@@ -45,6 +47,8 @@ function deselectElement(evt) {
     elementSelect.removeAttribute("onmousemove");
     elementSelect.removeAttribute("onmouseout");
     elementSelect.removeAttribute("onmouseup");
+    elementSelect.removeAttribute("touchend");
+    elementSelect.removeAttribute("touchmove");
     elementSelect = 0;
   }
 }
