@@ -7,8 +7,9 @@ for (var i = 0; i < puzzle.length; i++) {
   puzzle[i].setAttribute("width", width[i]);
   puzzle[i].setAttribute("height", height[i]);
   puzzle[i].setAttribute("x", Math.floor((Math.random() * 50) + 1));
-  puzzle[i].setAttribute("y", Math.floor((Math.random() * 600) + 1));
+  puzzle[i].setAttribute("y", Math.floor((Math.random() * 600) + 1));touchstart
   puzzle[i].setAttribute("onmousedown", "selectionElement(evt)");
+  puzzle[i].setAttribute("ontouchstart", "selectionElement(evt)");
 }
 
 var elementSelect = 0;
@@ -24,7 +25,7 @@ function selectionElement(evt) {
   currentPosX = parseFloat(elementSelect.getAttribute('x'));
   currentPosY = parseFloat(elementSelect.getAttribute('y'));
   elementSelect.setAttribute("onmousemove", "moverElement(evt)");
-  elementSelect.setAttribute("touchmove", "moverElement(evt)");
+  elementSelect.setAttribute("ontouchmove", "moverElement(evt)");
 }
 function moverElement(evt) {
   var dx = evt.clientX - currentX;
@@ -37,7 +38,8 @@ function moverElement(evt) {
   currentY = evt.clientY;
   elementSelect.setAttribute("onmouseout", "deselectElement(evt)");
   elementSelect.setAttribute("onmouseup", "deselectElement(evt)");
-  elementSelect.setAttribute("touchend", "deselectElement(evt)");
+  elementSelect.setAttribute("ontouchcancel", "deselectElement(evt)");
+  elementSelect.setAttribute("ontouchend", "deselectElement(evt)");
   iman();
 }
 
@@ -47,8 +49,10 @@ function deselectElement(evt) {
     elementSelect.removeAttribute("onmousemove");
     elementSelect.removeAttribute("onmouseout");
     elementSelect.removeAttribute("onmouseup");
-    elementSelect.removeAttribute("touchend");
-    elementSelect.removeAttribute("touchmove");
+    elementSelect.removeAttribute("ontouchmove");
+    elementSelect.removeAttribute("ontouchend");
+    elementSelect.removeAttribute("ontouchcancel");
+    elementSelect.removeAttribute("ontouchstart");
     elementSelect = 0;
   }
 }
